@@ -3,6 +3,7 @@ package com.mustache.bbs.domain.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,10 +13,12 @@ import javax.persistence.Id;
 @Getter
 public class Article {
     @Id
-    @GeneratedValue //Mysql AutoIncrease option
+    @GeneratedValue //자동생성 == Mysql AutoIncrease option
     private Long id;
 
+    @Column
     private String title;
+    @Column
     private String contents;
 
     public Article(String title, String contents) {

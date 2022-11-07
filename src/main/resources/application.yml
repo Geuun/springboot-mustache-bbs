@@ -9,3 +9,8 @@ spring:
     url: jdbc:mysql://localhost:8080
     username:
     password:
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    database: mysql
+    hibernate.ddl-auto: update
