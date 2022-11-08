@@ -24,6 +24,19 @@ public class ArticleController {
         this.articleRepository = articleRepository;
     }
 
+
+    @GetMapping("/list")
+    public String list(Model model) {
+        List<Article> articles = articleRepository.findAll();
+        model.addAttribute("articles", articles);
+        return "articles/list";
+    }
+
+    @GetMapping("")
+    public String index() {
+        return "redirect:/articles/list";
+    }
+
     @GetMapping(value = "/new")
     public String addform() {
         return "articles/new";
