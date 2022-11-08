@@ -5,9 +5,13 @@ import com.mustache.bbs.domain.entity.Article;
 import com.mustache.bbs.repository.ArticleRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.sound.sampled.Line;
+import java.util.List;
 
 @Controller
 @RequestMapping("/articles")
@@ -21,15 +25,16 @@ public class ArticleController {
     }
 
     @GetMapping(value = "/new")
-    public String newArticleForm() {
+    public String addform() {
         return "articles/new";
     }
 
     @PostMapping(value = "/posts")
-    public String createArticle(ArticleDto form) {
-        log.info(form.toString());
-        Article article = form.toEntity();
-        articleRepository.save(article);
-        return "";
+    public String add(ArticleDto articleDto) {
+        log.info(articleDto.toString());
+        Article savedArticle = articleRepository.save(articleDto.toEntity());
+        log.info("generatedId: {}", savedArticle.getId());
+        //souf %d %s
+        return String.format("redirect:/article/%d", savedArticle.getId());
     }
 }
