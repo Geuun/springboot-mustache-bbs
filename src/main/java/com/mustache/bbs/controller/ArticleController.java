@@ -25,16 +25,11 @@ public class ArticleController {
     }
 
 
-    @GetMapping("/list")
+    @GetMapping(value = {"", "/list"})
     public String list(Model model) {
         List<Article> articles = articleRepository.findAll();
         model.addAttribute("articles", articles);
         return "articles/list";
-    }
-
-    @GetMapping("")
-    public String index() {
-        return "redirect:/articles/list";
     }
 
     @GetMapping(value = "/new")
