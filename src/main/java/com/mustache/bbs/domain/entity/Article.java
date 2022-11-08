@@ -3,17 +3,15 @@ package com.mustache.bbs.domain.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "article")
 @NoArgsConstructor // Constructor 가 두개이기 때문에 추가
 @Getter
 public class Article {
     @Id
-    @GeneratedValue //자동생성 == Mysql AutoIncrease option
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //자동생성 == Mysql AutoIncrease option
     private Long id;
 
     @Column

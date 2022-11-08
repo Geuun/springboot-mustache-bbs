@@ -1,0 +1,11 @@
+{{>layouts/header}}
+
+{{#articles}}
+    <tr>
+        <th>{{id}}</th>
+        <td><a href="/article/{{id}}"></a></td>
+        <td>{{contents}}</td>
+    </tr>
+{{/articles}}
+
+{{>layouts/footer}}
