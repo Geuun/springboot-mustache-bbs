@@ -5,7 +5,6 @@ import lombok.*;
 
 @Getter
 @ToString
-@AllArgsConstructor
 public class ArticleDto {
     private Long id;
     private String title;
