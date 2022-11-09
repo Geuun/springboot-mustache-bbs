@@ -1,15 +1,16 @@
 {{>layouts/header}}
 
+{{#article}}
     <div class="card" style="width: 18rem;">
-        {{#article}}
             <div class="card-body">
                 <h5 class="card-title">{{title}}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{id}}</h6>
                 <p class="card-text">{{contents}}</p>
+                <a href="/articles/{{id}}/edit" class="btn btn-dark">Edit</a>
+            </div>
+    </div>
                 <a href="/articles/new" class="btn btn-secondary">New Article</a>
                 <a href="/articles/list" class="btn btn-dark">Articles List</a>
-            </div>
-        {{/article}}
-    </div>
+{{/article}}
 
 {{>layouts/footer}}
