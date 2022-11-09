@@ -26,9 +26,8 @@ public class ArticleController {
         this.articleRepository = articleRepository;
     }
 
-
     @GetMapping(value = {"", "/list"})
-    public String list(Model model) {
+    public String articleList(Model model) {
         List<Article> articles = articleRepository.findAll();
         model.addAttribute("articles", articles);
         return "articles/list";
@@ -46,12 +45,12 @@ public class ArticleController {
     }
 
     @GetMapping(value = "/new")
-    public String addform() {
+    public String createArticlePage() {
         return "articles/new";
     }
 
     @PostMapping(value = "/posts")
-    public String add(ArticleDto articleDto) {
+    public String createArticle(ArticleDto articleDto) {
         log.info(articleDto.toString());
         Article savedArticle = articleRepository.save(articleDto.toEntity());
         log.info("generatedId: {}", savedArticle.getId());
