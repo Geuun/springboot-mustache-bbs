@@ -1,13 +1,13 @@
 package com.mustache.bbs.domain.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "article")
 @NoArgsConstructor // Constructor 가 두개이기 때문에 추가
+@AllArgsConstructor
 @Getter
 public class Article {
     @Id
